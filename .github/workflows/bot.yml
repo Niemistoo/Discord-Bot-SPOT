@@ -4,6 +4,7 @@ name: Discord Webhook
 on:
   schedule:
     - cron: '0 4 * * *'
+  workflow_dispatch:
 
 # Define the jobs that will be run.
 jobs:
@@ -27,6 +28,6 @@ jobs:
       # Run Script
       - name: Run script
         env:
-          WEBHOOK: ${{ secrets.WEBHOOK_URL }}
+          WEBHOOK: ${{ secrets.WEBHOOK }}
         run: node main.js
           

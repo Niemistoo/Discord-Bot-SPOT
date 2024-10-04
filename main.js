@@ -2,13 +2,13 @@ const dotenv = require('dotenv');
 
 dotenv.config('./.env');
 
-const API_KEY = process.env.WEBHOOK_URL;
-const API_URL = 'https://api.porssisahko.net/v1/latest-prices.json';
+const API_KEY = process.env.WEBHOOK;
+const fetchURL = 'https://api.porssisahko.net/v1/latest-prices.json';
 
 // Fetch the electricity prices from the API
 async function fetchElectricityPrices() {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(fetchURL);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -40,7 +40,6 @@ async function getHighPricesString(data) {
                 pricesToday.push({
                     time: time,
                     price: price
-
                 });
             }
         }
