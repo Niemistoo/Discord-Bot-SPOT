@@ -1,0 +1,32 @@
+name: Discord Webhook
+
+# Schedule the job to run every day at 7:00 AM.
+on:
+  schedule:
+    - cron: '0 4 * * *'
+
+# Define the jobs that will be run.
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    # Define the steps that will be run.
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+
+      # Run Script
+      - name: Run script
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK_URL }}
+        run: node main.js
+          

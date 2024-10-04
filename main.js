@@ -2,8 +2,8 @@ const dotenv = require('dotenv');
 
 dotenv.config('./.env');
 
-const WEBHOOK_URL = process.env.WEBHOOK_URL;
-const API_URL = process.env.API_URL;
+const API_KEY = process.env.WEBHOOK_URL;
+const API_URL = 'https://api.porssisahko.net/v1/latest-prices.json';
 
 // Fetch the electricity prices from the API
 async function fetchElectricityPrices() {
@@ -56,7 +56,7 @@ async function alertHighPrices(data) {
         "username": 'Price Bot'
     };
 
-    const response = await fetch(WEBHOOK_URL, {
+    const response = await fetch(API_KEY, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
