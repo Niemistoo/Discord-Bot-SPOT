@@ -1,5 +1,5 @@
 # Discord-Bot-SPOT
 
-Script for automating electricity price service that sends expensive SPOT price hours to my Discord channel.
+Script for automating electricity price notification that sends expensive SPOT price hours to my Discord channel.
 
-Scheduler runs on cloud service and runs the task every morning 07:00AM.
+GitHub Actions runs the script every morning at 07:00AM.
