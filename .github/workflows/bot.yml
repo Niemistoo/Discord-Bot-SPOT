@@ -4,6 +4,7 @@ name: Discord Webhook
 on:
   schedule:
     - cron: '0 4 * * *'
+  workflow_dispatch:
 
 # Define the jobs that will be run.
 jobs:
