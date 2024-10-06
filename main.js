@@ -30,6 +30,7 @@ async function getHighPricesString(data) {
         if (date === dateToday) {
             if (content.price > 9) {
                 let time = new Date(content.startDate).toLocaleTimeString('fi-FI', {
+                    timeZone: 'Europe/Helsinki',
                     hour: '2-digit',
                     minute: '2-digit'
                 });
