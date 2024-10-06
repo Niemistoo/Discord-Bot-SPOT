@@ -23,10 +23,10 @@ async function fetchElectricityPrices() {
 
 // Get the high prices of the day in a string format
 async function getHighPricesString(data) {
-    let dateToday = new Date().toLocaleDateString('fi-FI');
+    let dateToday = new Date().toLocaleDateString('fi-FI', { timeZone: 'Europe/Helsinki' });
     let pricesToday = [];
     data.prices.forEach(content => {
-        let date = new Date(content.startDate).toLocaleDateString('fi-FI');
+        let date = new Date(content.startDate).toLocaleDateString('fi-FI', { timeZone: 'Europe/Helsinki' });
         if (date === dateToday) {
             if (content.price > 9) {
                 let time = new Date(content.startDate).toLocaleTimeString('fi-FI', {
